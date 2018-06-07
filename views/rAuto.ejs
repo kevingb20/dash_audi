@@ -1,0 +1,25 @@
+<nav class="navbar navbar-light bg-info">
+    <div class="col-2">
+      <button type="button" class="btn btn-outline-light" name="button" onclick="MostrarOcultarMenu()"><img class="menuBtn" src="" alt=""> Menú</button>
+    </div>
+    <div class="col-10 text-right ">
+      <span class="text-white">
+         Reportes de <strong>autos</strong> al llegar al zentrum
+      </span>
+    </div>
+</nav>
+<div id="msg_rAuto" class="alert text-center" role="alert" style="display: none"></div>
+<div class="row justify-content-md-center">
+  <div class="col-md-auto">
+    <select class="form-control" name="" id="slcAnios2" onchange="ConsultarMes(2)"></select>
+  </div>
+  <div class="col-md-auto">
+    <select class="form-control" name="" id="slcMeses2" onchange="ConsultarDia(2)"></select>
+  </div>
+  <div class="col-md-auto">
+    <button class="btn btn-primary" type="button" name="btnConsultarCitas" id="btnConsultarRCitas2" onclick="ConsultarReportes(2)">Consultar</button>
+  </div>
+</div>
+<div id="charts2" >
+		<div id="wCanvas2" class="wrapper"></div>
+</div>

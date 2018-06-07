@@ -1,0 +1,26 @@
+<div id="msg_mapa" class="alert text-center" role="alert" style="display: none"></div>
+<nav class="navbar navbar-light bg-light">
+    <div class="col-2">
+      <button type="button" class="btn btn-outline-dark" name="button" onclick="MostrarOcultarMenu()"><img class="menuBtn" src="" alt=""> Menú</button>
+    </div>
+    <div class="col-10 text-right ">
+      <span>
+         Mapa de las citas
+      </span>
+    </div>
+</nav>
+<div class="row">
+  <div class="mx-auto">
+    <div class="btn-group  btn-group-justified" role="group" aria-label="...">
+      <button type="button" class="btn btn-info" onclick="MostrarMarcadores(0)">Todos<span id="spanBtnTodos" class="badge badge-light badge-pill"></span></button>
+      <button type="button" class="btn btn-primary" onclick="MostrarMarcadores(1)">Por recibir asignado<span id="spanBtnRecibir" class="badge badge-light badge-pill" ></span></button>
+      <button type="button" class="btn btn-warning" onclick="MostrarMarcadores(3)">Valet no asignado<span id="spanBtnNoAsignado" class="badge badge-light badge-pill"></span></button>
+      <button type="button" class="btn btn-danger" onclick="MostrarMarcadores(2)">Por entregar<span id="spanBtnEntregar" class="badge badge-light badge-pill"></span></button>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div id="map"></div>
+  </div>
+</div>

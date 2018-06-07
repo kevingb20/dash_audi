@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Login Dashboard Audi</title>
+
+
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+
+      <link rel="stylesheet" href="/css/login-style.css">
+
+
+</head>
+
+<body>
+
+  <div class="login-form" >
+
+     <h1>Administrador</h1>
+
+      <div class="form-group ">
+        <input type="text" class="form-control" placeholder="Usuario" id="txt-user" required>
+        <i class="fa fa-user"></i>
+      </div>
+      <div class="form-group log-status">
+        <input type="password" class="form-control" placeholder="Contraseña" id="txt-pass" required>
+        <i class="fa fa-lock"></i>
+      </div>
+       <span class="alert">Usuario o Contraseña <b>incorrecta</b></span>
+       <a class="link" href="passwordRecovery">¿Perdiste tu contraseña?</a>
+
+
+  <button id="btn-login" type="button" onclick="login()" class="log-btn" >Entrar</button>
+   </div>
+
+   <!-- <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+-->
+  <script   src="https://code.jquery.com/jquery-2.1.3.min.js"   integrity="sha256-ivk71nXhz9nsyFDoYoGf2sbjrR9ddh+XDkCcfZxjvcM="   crossorigin="anonymous"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyC65yjucEZ-MPLROIjMsTSEPdOnfjKbLa4",
+      authDomain: "concierge-audi.firebaseapp.com",
+      databaseURL: "https://concierge-audi.firebaseio.com",
+      projectId: "concierge-audi",
+      storageBucket: "concierge-audi.appspot.com",
+      messagingSenderId: "831682357807"
+    };
+    firebase.initializeApp(config);
+  </script>
+    <script  src="/js/login-index.js"></script>
+
+  <script  src="/js/login.js"></script>
+
+<script>
+
+// COMPROBAR PRESIONAR ENTER
+var pass1 = document.getElementById("txt-pass");
+
+// Execute a function when the user releases a key on the keyboard
+pass1.addEventListener("keyup", function(event) {
+  // Cancel the default action, if needed
+  event.preventDefault();
+  // Number 13 is the "Enter" key on the keyboard
+  if (event.keyCode === 13) {
+    // Trigger the button element with a click
+    document.getElementById("btn-login").click();
+  }
+});
+</script>
+
+
+</body>
+
+</html>

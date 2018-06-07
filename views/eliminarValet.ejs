@@ -1,0 +1,32 @@
+<nav class="navbar navbar-light bg-danger">
+    <div class="col-2">
+      <button type="button" class="btn btn-outline-light" name="button" onclick="MostrarOcultarMenu()"><img class="menuBtn" src="" alt=""> Menú</button>
+    </div>
+    <div class="col-10 text-right ">
+      <span class="text-white">
+         Eliminar un valet
+      </span>
+    </div>
+</nav>
+<div class="row">
+  <div class="col-12">
+    <table id="tblValet" class="display" style="width:100%">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>nombre</th>
+          <th>usuario</th>
+          <th>correo</th>
+        </tr>
+      </thead>
+    </table>
+    <br>
+  </div>
+</div>
+
+<div id="msg_eliminarValet" class="alert text-center" role="alert" style="display: none"></div>
+<div class="row">
+  <div class="mx-auto">
+    <button id="btnEliminarV" type="button" class="btn btn-outline-secondary" onclick="EliminarEmpleadoFirebase(3)" disabled>Eliminar el valet Seleccionado</button>
+  </div>
+</div>

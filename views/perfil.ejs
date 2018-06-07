@@ -1,0 +1,68 @@
+<nav class="navbar navbar-light bg-primary" style="margin-bottom:10px;">
+    <div class="col-2">
+      <button type="button" class="btn btn-outline-light" name="button" onclick="MostrarOcultarMenu()"><img class="menuBtn" src="" alt=""> Menú</button>
+    </div>
+    <div class="col-10 text-right ">
+      <span class="text-white">
+         Actualizar datos del administrador
+      </span>
+    </div>
+</nav>
+<div class="text-center">
+  <p>
+    La imagen solo se puede cambiar de la aplicación móvil y se mostrará la siguiente vez que inicie sesión
+  </p>
+</div>
+<div id="msg_perfil" class="alert text-center" role="alert" style="display: none"></div>
+<div class="row">
+  <div class="col-4">
+    <div class="card " style="width: 18rem;">
+      <img id="cardImagen" class="card-img-top d-block mx-auto" src="" alt="Foto del usuario">
+      <div class="card-body">
+        <h5 id="cardUsuario" class="card-title" style="display:inline;" ></h5>
+        <!--
+        <img src="/img/glyphicons/glyphicons-137-cogwheel.png" alt="">
+        -->
+        <h6 id="cardTipo" class="card-subtitle mb-2 text-muted"></h6>
+      </div>
+    </div>
+  </div>
+<div class="col-8">
+  <label for="cardNombre">Nombre:</label>
+  <div class="input-group mb-3">
+
+    <input type="text" id="cardNombre" class="form-control" aria-label="" aria-describedby="btnCambiarNombre" disabled>
+    <div class="input-group-append">
+      <button class="btn btn-outline-info" type="button"  id="btnCambiarNombre" onclick="editarPerfil(1)">Cambiar</button>
+    </div>
+  </div>
+  <label for="cardApellido">Apellido:</label>
+  <div class="input-group mb-3">
+    <input type="text" id="cardApellido" class="form-control" aria-label="" aria-describedby="btnCambiarApellido" disabled>
+    <div class="input-group-append">
+      <button class="btn btn-outline-info" type="button"  id="btnCambiarApellido" onclick="editarPerfil(2)">Cambiar</button>
+    </div>
+  </div>
+  <label for="cardTelefono">Teléfono:</label>
+  <div class="input-group mb-3">
+    <input type="text" id="cardTelefono" class="form-control" aria-label="" aria-describedby="btnCambiarTelefono" disabled>
+    <div class="input-group-append">
+      <button class="btn btn-outline-info" type="button"  id="btnCambiarTelefono" onclick="editarPerfil(3)">Cambiar</button>
+    </div>
+  </div>
+  <label for="cardCorreo">Correo:</label>
+  <div class="input-group mb-3">
+    <input type="text" id="cardCorreo" class="form-control" aria-label="" aria-describedby="btnCambiarCorreo" disabled>
+    <div class="input-group-append">
+      <button class="btn btn-outline-info" type="button"  id="btnCambiarCorreo" onclick="editarPerfil(4)">Cambiar</button>
+    </div>
+  </div>
+  <label for="cardPass">Contraseña:</label>
+  <div class="input-group mb-3">
+    <input type="password" id="cardPass" class="form-control" value="password" aria-label="" aria-describedby="btnCambiarPass" disabled></input>
+    <div class="input-group-append">
+      <button class="btn btn-outline-info" type="button"  id="btnCambiarPass" onclick="editarPerfil(5)">Cambiar</button>
+    </div>
+  </div>
+</div>
+</div>

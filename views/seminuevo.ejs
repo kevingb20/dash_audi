@@ -1,0 +1,145 @@
+<nav class="navbar navbar-light bg-primary">
+    <div class="col-2">
+      <button type="button" class="btn btn-outline-light" name="button" onclick="MostrarOcultarMenu()"><img class="menuBtn" src="" alt=""> Menú</button>
+    </div>
+    <div class="col-10 text-right ">
+      <span class="text-white">
+         Agregar,modificar o eliminar un vehículo seminuevo
+      </span>
+    </div>
+</nav>
+<div class="row">
+  <div class="col-12">
+    <table id="tblSeminuevo" class="table table-hover table-striped table-bordered" style="width:100%">
+      <thead class="thead-dark">
+        <tr>
+          <th>id</th>
+          <th>Placa</th>
+          <th>Precio</th>
+          <th>Kilometraje</th>
+          <th>Año</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+</div>
+<div id="msg_seminuevoImg" class="alert text-center" role="alert" style="display:none"></div>
+<div class="row">
+  <div class="col-3">
+    <img class="imgSN" id="imgSN1" src="/img/camara-preview.png" alt="imagen">
+  </div>
+  <div class="col-3">
+    <img class="imgSN" id="imgSN2" src="/img/camara-preview.png" alt="imagen 2">
+  </div>
+  <div class="col-3">
+    <img class="imgSN" id="imgSN3" src="/img/camara-preview.png" alt="imagen 3">
+  </div>
+  <div class="col-3">
+    <img class="imgSN" id="imgSN4" src="/img/camara-preview.png" alt="imagen 4">
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-3">
+    <form id="uploadimage1" action="" method="post" enctype="multipart/form-data">
+      <input id="file1" name="file" type="file" class="form-control-file" onchange="readURL(this,1);">
+    </form>
+  </div>
+  <div class="col-3">
+    <form id="uploadimage2" action="" method="post" enctype="multipart/form-data">
+      <input id="file2" name="file" type="file" class="form-control-file" onchange="readURL(this,2);">
+    </form>
+  </div>
+  <div class="col-3">
+    <form id="uploadimage3" action="" method="post" enctype="multipart/form-data">
+      <input id="file3" name="file" type="file" class="form-control-file" onchange="readURL(this,3);">
+    </form>
+  </div>
+  <div class="col-3">
+    <form id="uploadimage4" action="" method="post" enctype="multipart/form-data">
+      <input id="file4" name="file" type="file" class="form-control-file" onchange="readURL(this,4);">
+    </form>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-sm">
+    <label for="inputPlaca3">Placa:</label>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" id="inputPlaca3" placeholder="AUD-1234" aria-describedby="spAddPlaca3">
+    </div>
+  </div>
+  <div class="col-sm">
+    <label for="inputPrecio3">Precio:</label>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="spAddP3">$</span>
+      </div>
+      <input type="text" class="form-control" id="inputPrecio3" placeholder="0.00" aria-describedby="spAddP3">
+    </div>
+  </div>
+  <div class="col-sm">
+    <label for="inputKilometraje3">Kilometraje:</label>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" id="inputKilometraje3" placeholder="0000" aria-describedby="spAddkm3">
+      <div class="input-group-append">
+        <span class="input-group-text" id="spAddkm3">kms</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm">
+    <label for="inputAnio3">Año:</label>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" id="inputAnio3" placeholder="2018" aria-describedby="spAddAnio3">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm">
+    <label for="slcModelo3">Modelo:</label>
+    <div class="input-group mb-3">
+      <select class="form-control" id="slcModelo3">
+      </select>
+    </div>
+  </div>
+  <div class="col-sm">
+    <label for="inputMotor3">Motor:</label>
+      <input type="text" class="form-control" id="inputMotor3" placeholder="2.1" aria-describedby="spAddMotor3">
+  </div>
+  <div class="col-sm">
+    <label for="inputTraccion3">Tracción:</label>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" id="inputTraccion3" placeholder="4x4" aria-describedby="spAddTraccion3">
+    </div>
+  </div>
+
+  <div class="col-sm">
+    <label for="slcAC3">A/C:</label>
+    <div class="input-group mb-3">
+      <select class="form-control" id="slcAC3">
+      <option>SI</option>
+      <option>NO</option>
+    </select>
+    </div>
+  </div>
+
+</div>
+<div class="row">
+  <div class="col-sm">
+    <label for="inputEquipamiento">Descripción del Equipamiento:</label>
+    <textarea class="form-control" rows="7" id="inputEquipamiento" placeholder="Escriba aquí los detalles del Equipamiento"></textarea>
+  </div>
+  <div class="col-sm">
+    <label for="inputInformacion">Información adicional:</label>
+    <textarea class="form-control" rows="7" id="inputInformacion" placeholder="Escriba aquí cualquier información adicional"></textarea>
+  </div>
+</div>
+<div id="msg_seminuevo" class="alert text-center" role="alert" style="display:none"></div>
+<div class="row">
+  <div class="mx-auto">
+    <button id="btnModificarSeminuevo" type="button" class="btn btn-outline-secondary" onclick="GuardarSeminuevo(1)" disabled>Modificar Seleccionado</button>
+    <button id="btnGuardarSeminuevo" type="button" class="btn btn-primary" onclick="GuardarSeminuevo(2)">Guardar Nuevo</button>
+    <button id="btnEliminarSeminuevo" type="button" class="btn btn-outline-secondary" onclick="EliminarSeminuevo()" disabled>Eliminar</button>
+  </div>
+</div>

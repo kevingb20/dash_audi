@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Dashboard Audi</title>
+
+  <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Hoja de estilos-->
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+
+  <!-- cdn Bootstrap-->
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  <!-- Favicon-->
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" />
+
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+  <!-- Bootstrap CSS -->
+  <!--
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+-->
+
+  <!-- CDN DATATABLES -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.0/dist/Chart.min.js"></script>
+  	<script src="/js/charts/chartjs-plugin-datalabels.js"></script>
+  	<script src="/js/charts/utils.js"></script>
+<!--
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+-->
+<style>
+.dataTables_wrapper .dataTables_paginate .paginate_button{
+  padding: 0;!important
+  margin-left: :0px;!important
+}
+</style>
+
+</head>
+
+<body>
+<!-- *********** COMIENZA EL CONTENIDO ************-->
+
+<div class="wrapper">
+  <!-- Sidebar -->
+  <nav id="sidebar">
+    <!-- Sidebar header -->
+    <!-- Logo Audi
+    <div class="sidebar-header"><a href="#" onclick="irPagina('mapa')"><img src="/img/audi-logo.png"></a></div>
+    -->
+    <!-- Sidebar Links -->
+
+    <!-- **************** Foto y nombre del administrador -->
+    <div id="contenedorAdmin" class="container" style="margin-top:20px;">
+      <div class="row">
+        <div class="col-4" onclick="irPagina('perfil')">
+          <a href="#" >
+            <img id="img-admin" src="" class="rounded"  alt="" width="100%">
+          </a>
+
+        </div>
+        <div class="col-8">
+
+          <p id="txtNombre" style="font-size:18px;">Nombre</p>
+          <p id="txtTipo" style="font-size:14px;">Administrador</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ******************* MENU ********************-->
+    <ul class="list-unstyled components">
+        <li id="li-mapa" onclick="irPagina('mapa')"><a href="#">Mapa</a></li>
+      <li id="liCitasMenu"><!-- Link with dropdown items -->
+        <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false">Citas <span id="spanBtnRecibir3" class="badge badge-light badge-pill" ></span></a>
+      </li>
+        <ul class="collapse list-unstyled" id="homeSubmenu1">
+          <li id="li-citasPorRecibir"   onclick="irPagina('citasPorRecibir')"><a href="#">Por recibir <span id="spanBtnRecibir2" class="badge badge-light badge-pill" ></span></a></li>
+          <li id="li-citasPorReparar"   onclick="irPagina('citasPorReparar')"><a href="#">Por reparar</a></li>
+          <li id="li-citasPorEntregar"  onclick="irPagina('citasPorEntregar')"><a href="#">Por entregar</a></li>
+          <li id="li-citasFinalizadas"    onclick="irPagina('citasFinalizadas')"><a href="#">Finalizadas</a></li>
+          <li id="li-separarCita"    onclick="irPagina('separarCita')"><a href="#">Separar Cita</a></li>
+        </ul>
+      <li id="li-seminuevo"><a href="#" onclick="irPagina('seminuevo')">Seminuevos</a></li>
+
+
+            <li><!-- Link with dropdown items -->
+                <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false">Empleados</a></li>
+                <ul class="collapse list-unstyled" id="homeSubmenu2">
+                    <li id="li-registrarEmpleado" onclick="irPagina('registrarEmpleado')"><a href="#">Registrar empleado</a></li>
+                    <li id="li-eliminarAdministrador" onclick="irPagina('eliminarAdministrador')"><a href="#">Eliminar administrador</a></li>
+                    <li id="li-eliminarValet" onclick="irPagina('eliminarValet')"><a href="#">Eliminar valet</a></li>
+                </ul>
+                <li><!-- Link with dropdown items -->
+                    <a href="#homeSubmenu3" data-toggle="collapse" aria-expanded="false">Reportes</a></li>
+                    <ul class="collapse list-unstyled" id="homeSubmenu3">
+                        <li id="li-rCitas"><a href="#" onclick="irPagina('rCitas')">Por Cita</a></li>
+                        <li id="li-rAuto"><a href="#" onclick="irPagina('rAuto')">Por Auto</a></li>
+
+                        <li id="li-citasEliminadas"    onclick="irPagina('citasEliminadas')"><a href="#">Citas eliminadas</a></li>
+
+                    </ul>
+
+
+
+        </ul>
+    <!-- **************** Despues del Separador *************-->
+    <div>
+      <div id="chartsSideBar" style="margin-bottom:10px; padding-right:15px;">
+      		<div id="wCanvasSideBar" class="wrapper"></div>
+      </div>
+    </div>
+        <div id="Salir" class="container">
+          <div class="row">
+            <div class="col-12 justify-items-center">
+              <button id="btnSalir" type="button" class="btn btn-outline-danger btn-block" name="btnSalir" onclick="Salir()">
+           <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                Cerrar sesión</button>
+            </div>
+          </div>
+        </div>
+  </nav>
+
+  <!-- Contenido de la pagina -->
+  <div id="content" class="container">
+
+    <div class="dash-pagina" id="mapa"><% include mapa.ejs %></div>
+      <div class="dash-pagina" id="citasPorRecibir"><% include citasPorRecibir.ejs %></div>
+      <div class="dash-pagina" id="citasPorReparar"><% include citasPorReparar.ejs %></div>
+      <div class="dash-pagina" id="citasPorEntregar"><% include citasPorEntregar.ejs %></div>
+      <div class="dash-pagina" id="citasFinalizadas"><% include citasFinalizadas.ejs %></div>
+      <div class="dash-pagina" id="citasEliminadas"><% include citasEliminadas.ejs %></div>
+      <div class="dash-pagina" id="separarCita"><% include separarCita.ejs %></div>
+
+        <div class="dash-pagina" id="rCitas"><% include rCitas.ejs %> </div>
+        <div class="dash-pagina" id="rAuto"><% include rAuto.ejs %> </div>
+      <div class="dash-pagina" id="registrarEmpleado"><% include registrarEmpleado.ejs %> </div>
+      <div class="dash-pagina" id="perfil"><% include perfil.ejs %></div>
+      <div class="dash-pagina" id="eliminarAdministrador"><% include eliminarAdministrador.ejs %></div>
+      <div class="dash-pagina" id="eliminarValet"><% include eliminarValet.ejs %></div>
+      <div class="dash-pagina" id="seminuevo"><% include seminuevo.ejs %></div>
+
+  </div>
+</div>
+
+
+
+
+<!-- *************** TERMINA EL CONTENIDO------------->
+
+
+
+
+<!--
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+-->
+<script   src="https://code.jquery.com/jquery-2.1.3.min.js"   integrity="sha256-ivk71nXhz9nsyFDoYoGf2sbjrR9ddh+XDkCcfZxjvcM="   crossorigin="anonymous"></script>
+<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+<!--TOAST -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCgammambjKm2spKuB0J4KqUCK8-zFdz8E",
+    authDomain: "concierge-audi.firebaseapp.com",
+    databaseURL: "https://concierge-audi.firebaseio.com",
+    projectId: "concierge-audi",
+    storageBucket: "concierge-audi.appspot.com",
+    messagingSenderId: "831682357807"
+  };
+  firebase.initializeApp(config);
+  const messaging =firebase.messaging();
+  messaging.requestPermission()
+  .then(function(){
+    console.log("Permiso de recibir notificaciones concedido");
+    return messaging.getToken();
+  })
+  .then(function(token){
+    console.log(token);
+    ActualizarTokenWeb(token);
+  })
+  .catch(function(error){
+    console.log("Ocurrió un error: "+error);
+  })
+  messaging.onMessage(function(payload) {
+    //console.log('Message received. ', payload.notification.title);
+    var notification = payload.notification;
+    console.log('Mensaje recibido.data', payload.notification);
+
+    //Ejecutar una accion segun el codigo de la notificacion
+    AccionesNotificaciones(payload.data.codn,notification.title,notification.body);//
+
+  });
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/plug-ins/1.10.16/dataRender/ellipsis.js"></script>
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+
+<script src="/js/funciones.js"></script>
+<script type="text/javascript">
+             $(document).ready(function () {
+               irPagina("mapa");
+                 $('#sidebarCollapse').on('click', function () {
+                     $('#sidebar').toggleClass('active');
+                 });
+             });
+         </script>
+
+         <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgammambjKm2spKuB0J4KqUCK8-zFdz8E&callback=initMap">
+            </script>
+</body>
+</html>

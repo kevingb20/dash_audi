@@ -1,0 +1,46 @@
+<nav class="navbar navbar-light bg-warning">
+    <div class="col-2">
+      <button type="button" class="btn btn-outline-light" name="button" onclick="MostrarOcultarMenu()"><img class="menuBtn" src="" alt=""> Menú</button>
+    </div>
+    <div class="col-10 text-right ">
+      <span class="text-white">
+         Separar citas
+      </span>
+    </div>
+</nav>
+<div class="row">
+  <div class="col-12">
+    <p>Escriba la fecha que desea consultar en este formato (AAAA-MM-DD):</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="input-group mb-3">
+      <input type="date" id="inputFecha" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon2">
+      <div class="input-group-append">
+        <button class="btn btn-outline-info" type="button"  id="basic-addon2" onclick="ConsultarCitaFecha()">Consultar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="msg_separarCita" class="alert text-center" role="alert" style="display: none"></div>
+<div class="row">
+  <div class="col-12">
+    <p>Horas disponibles por día:</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-3">
+    <button id="btnBloquear1" type="button" class="btn btn-outline-secondary btn-lg btn-block" name="button9" disabled onclick="BloquearHora(1,'9:00')">9:00 <span id="spanBloquear1" class="badge badge-light badge-pill"></span></button>
+  </div>
+  <div class="col-3">
+    <button id="btnBloquear2" type="button" class="btn btn-outline-secondary btn-lg btn-block" name="button11" disabled onclick="BloquearHora(2,'11:00')">11:00 <span id="spanBloquear2" class="badge badge-light badge-pill"></span></button>
+  </div>
+  <div class="col-3">
+    <button id="btnBloquear3" type="button" class="btn btn-outline-secondary btn-lg btn-block" name="button13" disabled onclick="BloquearHora(3,'13:00')">13:00 <span id="spanBloquear3" class="badge badge-light badge-pill"></span></button>
+  </div>
+  <div class="col-3">
+      <button id="btnBloquear4" type="button" class="btn btn-outline-secondary btn-lg btn-block" name="button15" disabled onclick="BloquearHora(4,'15:00')">15:00 <span id="spanBloquear4" class="badge badge-light badge-pill"></span></button>
+  </div>
+</div>

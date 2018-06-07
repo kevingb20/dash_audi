@@ -1,0 +1,32 @@
+<nav class="navbar navbar-light bg-primary">
+    <div class="col-2">
+      <button type="button" class="btn btn-outline-light" name="button" onclick="MostrarOcultarMenu()"><img class="menuBtn" src="" alt=""> Menú</button>
+    </div>
+    <div class="col-10 text-right ">
+      <span class="text-white">
+         Reporte de <strong>citas finalizadas</strong> según la fecha
+      </span>
+    </div>
+</nav>
+<div id="msg_rCitas" class="alert text-center" role="alert" style="display: none"></div>
+<div class="row justify-content-md-center">
+  <div class="col-md-auto">
+    <select class="form-control" name="" id="slcAnios1" onchange="ConsultarMes(1)"></select>
+  </div>
+  <div class="col-md-auto">
+    <select class="form-control" name="" id="slcMeses1" onchange="ConsultarDia(1)"></select>
+  </div>
+  <div class="col-md-auto">
+    <select class="form-control" name="" id="slcTipoR1">
+      <option value="1">Precio de mantenimientos</option>
+      <option value="2">Cantidad de Citas Finalizadas</option>
+    </select>
+  </div>
+  <div class="col-md-auto">
+    <button class="btn btn-primary" type="button" name="btnConsultarCitas" id="btnConsultarRCitas1" onclick="ConsultarReportes(1)">Consultar</button>
+  </div>
+</div>
+
+<div id="charts" >
+		<div id="wCanvas1" class="wrapper"></div>
+</div>
